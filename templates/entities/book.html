@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Book page</h1>
+
+      {% if book %}
+      <ul>
+
+        <li>Title: {{ book.title }}</a><br>
+          <a>Type: {{ book.type }}</a><br>
+          <a>Description: {{ book.description }}</a><br>
+          <a>Year: {{ book.year }}</a><br>
+          <a>Volume: {{ book.volume }}</a><br>
+        </li>
+      </ul>
+      <div>
+        {% if client_has_book %}
+          You already have this one!<br>
+          You can read it now!
+        {% else %}
+          You have not purchased this one yet!<br>
+          You can <a href="{% url 'buy' %}?id={{book.id}}">buy it</a> now!
+        {% endif %}
+      </div>
+
+    {% else %}
+      <p>Book not found..</p>
+    {% endif %}
+
+{% endblock %}

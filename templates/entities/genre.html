@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Genre page</h1>
+
+    {% if genre %}
+    <ul>
+
+      <li>
+        <a>{{ genre.name }}</a> ({{genre.description}})
+      </li>
+    </ul>
+
+    {% else %}
+      <p>Genre not found..</p>
+    {% endif %}
+{% endblock %}

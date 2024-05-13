@@ -1,0 +1,5 @@
+from django.test import TestCase
+
+
+class TestAddFunds(TestCase):
+    ddaskjsllllllkjsljskjsdklasjslkfjsalfjaslkfaslkfjaslkfjaslkfjaslfja;slfjas;lfjsfkljaslkdfjaslkfjalskjf;alksdjfalskdfjalskjfslkfslkjfalskodels book mod

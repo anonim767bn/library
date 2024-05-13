@@ -1,0 +1,37 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if client_data %}
+            <h5>Your profile data:</h5>
+            <ul>
+                {% for key, value in client_data.items %}
+                    <li> {{key}}: {{value}} </li>
+                {% endfor %}
+            </ul>
+            {% if client_books %}
+                <h4>Your books:</h4>
+                <ul>
+                    {% for book in client_books %}
+                        <li> <a href="{% url 'book' %}?id={{ book.id }}"> {{ book.title }}</a> </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h4>You have not purchased any books yet.</h4>
+            {% endif %}
+
+        {% else %}
+            <p>No client data to show..</p>
+        {% endif %}
+
+        <h4> To add funds to your account please use form below: </h4>
+
+        <form action="/profile/" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Add funds">
+        </form>
+    {% else %}
+        <h4>You have to be logged in to view this page!</h4>
+    {% endif %}
+{% endblock %}

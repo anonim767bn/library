@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Author page</h1>
+
+    {% if author %}
+    <ul>
+
+      <li>
+        <a>{{ author.full_name }}</a>
+      </li>
+    </ul>
+
+    {% else %}
+      <p>Author not found..</p>
+    {% endif %}
+{% endblock %}

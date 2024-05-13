@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Books</h1>
+
+    {% if books_list %}
+    <ul>
+
+      {% for book in books_list %}
+      <li>
+        <a href="{% url 'book'%}?id={{book.id}}">{{ book.title }}</a> {{ book.type }} {{ book.year }}
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no books for now..</p>
+    {% endif %}
+{% endblock %}

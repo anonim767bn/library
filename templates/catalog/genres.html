@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Genres</h1>
+
+    {% if genres_list %}
+    <ul>
+
+      {% for genre in genres_list %}
+      <li>
+        <a href="{% url 'genre'%}?id={{genre.id}}">{{ genre.name }}</a> ({{genre.description}})
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no genres for now..</p>
+    {% endif %}
+{% endblock %}
